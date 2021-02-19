@@ -1,9 +1,44 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:who_will_win_million/components/container_section.dart';
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  Timer _timer;
+
+  int _start = 10;
+
+  void startTimer() {
+    const oneSec = const Duration(seconds: 1);
+    _timer = new Timer.periodic(
+      oneSec,
+      (Timer timer) {
+        if (_start == 0) {
+          setState(() {
+            timer.cancel();
+          });
+        } else {
+          setState(() {
+            _start--;
+          });
+        }
+      },
+    );
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
+    startTimer();
     return Scaffold(
       appBar: AppBar(
         title: Text('a'),
@@ -74,7 +109,7 @@ class MyHomePage extends StatelessWidget {
                       color: Colors.black),
                   child: Center(
                     child: Text(
-                      's',
+                      "$_start",
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 25,
