@@ -129,9 +129,15 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Row(
                 children: [
-                  HelpEclipse(),
-                  HelpEclipse(),
-                  HelpEclipse(),
+                  HelpEclipse(
+                    ty: 'mark',
+                  ),
+                  HelpEclipse(
+                    ty: '50',
+                  ),
+                  HelpEclipse(
+                    ty: 'tele',
+                  ),
                 ],
               ),
               Stack(
@@ -208,10 +214,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               ),
+              SizedBox(
+                height: MediaQuery.of(context).size.width * 0.05,
+              ),
               Row(
                 children: [
                   Expanded(
                     child: Divider(
+                      thickness: 2,
                       color: Colors.white,
                     ),
                   ),
@@ -230,18 +240,14 @@ class _MyHomePageState extends State<MyHomePage> {
                         ],
                       ),
                     ),
-                    child: Padding(
-                      padding: EdgeInsets.only(right: 25.0),
-                      child: Expanded(
-                        child: Text(
-                          'dsfdsf',
-                          style: TextStyle(color: Colors.white, fontSize: 20),
-                        ),
-                      ),
+                    child: Text(
+                      'SY ' + '64,000',
+                      style: TextStyle(color: Colors.white, fontSize: 20),
                     ),
                   ),
                   Expanded(
                     child: Divider(
+                      thickness: 2,
                       color: Colors.white,
                     ),
                   ),
