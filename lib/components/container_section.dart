@@ -34,12 +34,13 @@ class ContainerSection extends StatelessWidget {
         },
         child: Consumer<ProviderClass>(builder: (context, sp, child) {
           return Container(
+            alignment: Alignment.centerRight,
             width: 20,
             height: isQuestion
-                ? MediaQuery.of(context).size.height * 0.10
+                ? MediaQuery.of(context).size.height * 0.09
                 : MediaQuery.of(context).size.height * 0.07,
             decoration: BoxDecoration(
-              border: Border.all(color: Colors.black),
+              border: Border.all(color: Colors.white),
               borderRadius: BorderRadius.circular(15),
               //color: Color(0xFF003B6F),
               gradient: LinearGradient(
@@ -50,19 +51,13 @@ class ContainerSection extends StatelessWidget {
               ),
             ),
             child: Padding(
-              padding: EdgeInsets.only(right: 25.0),
-              child: Center(
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Text(
-                        isQuestion ? 'dddddd' : letter[index] + ' ' + a,
-                        textAlign: TextAlign.end,
-                        style: TextStyle(color: Colors.white, fontSize: 20),
-                      ),
-                    ),
-                  ],
-                ),
+              padding: EdgeInsets.only(
+                right: MediaQuery.of(context).size.width * 0.035,
+              ),
+              child: Text(
+                isQuestion ? 'dddddd' : letter[index] + ' ' + a,
+                //textAlign: TextAlign.end,
+                style: TextStyle(color: Colors.white, fontSize: 20),
               ),
             ),
           );
