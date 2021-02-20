@@ -136,7 +136,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ty: '50',
                   ),
                   HelpEclipse(
-                    ty: 'tele',
+                    ty: 'questionnaire',
                   ),
                 ],
               ),

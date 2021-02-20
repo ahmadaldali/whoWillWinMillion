@@ -22,10 +22,19 @@ class HelpEclipse extends StatelessWidget {
         ),
         child: Center(
           child: (ty == 'mark')
-              ? FaIcon(FontAwesomeIcons.question)
-              : ((ty == 'tele')
-                  ? FaIcon(FontAwesomeIcons.phone)
-                  : FaIcon(FontAwesomeIcons.handPointLeft)),
+              ? FaIcon(
+                  FontAwesomeIcons.question,
+                  size: MediaQuery.of(context).size.width * 0.08,
+                )
+              : ((ty == 'questionnaire')
+                  ? FaIcon(
+                      FontAwesomeIcons.chartBar,
+                      size: MediaQuery.of(context).size.width * 0.08,
+                    )
+                  : FaIcon(
+                      FontAwesomeIcons.gripLines,
+                      size: MediaQuery.of(context).size.width * 0.08,
+                    )),
         ),
       ),
     );
