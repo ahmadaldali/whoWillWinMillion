@@ -73,7 +73,7 @@ class Questions {
       'select * from questions where qType = difficult',
     );
 
-    // Convert the List<Map<String, dynamic> into a List<Dog>.
+    // Convert the List<Map<String, dynamic> into a List<Question>.
     return List.generate(questions.length, (i) {
       return Questions(
         id: questions[i]['id'],
@@ -86,7 +86,6 @@ class Questions {
   Future<int> insertQuestion(Questions question) async {
     final db = await DBProvider.db.database;
     int res = await db.insert('Questions', question.toMap());
-    // Convert the List<Map<String, dynamic> into a List<Dog>.
     return res;
   }
 }
