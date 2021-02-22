@@ -17,14 +17,14 @@ class Questions {
     };
   }
 
-  Future<List<Questions>> questions() async {
+  static Future<List<Questions>> questions() async {
     // Get a reference to the database.
     final db = await DBProvider.db.database;
 
     // Query the table for all The Questions.
     final List<Map<String, dynamic>> questions = await db.query('questions');
 
-    // Convert the List<Map<String, dynamic> into a List<Dog>.
+    // Convert the List<Map<String, dynamic> into a List<Question>.
     return List.generate(questions.length, (i) {
       return Questions(
         id: questions[i]['id'],
@@ -34,11 +34,11 @@ class Questions {
     });
   }
 
-  Future<List<Questions>> getEasyQuestions() async {
+  static Future<List<Questions>> getEasyQuestions() async {
     final db = await DBProvider.db.database;
     final List<Map<String, dynamic>> questions = await db.query(
       'questions',
-      where: '$qType = normal',
+      where: 'qType = normal',
     );
 
     // Convert the List<Map<String, dynamic> into a List<Dog>.
@@ -51,7 +51,7 @@ class Questions {
     });
   }
 
-  Future<List<Questions>> getNormalQuestions() async {
+  static Future<List<Questions>> getNormalQuestions() async {
     final db = await DBProvider.db.database;
     final List<Map<String, dynamic>> questions = await db.rawQuery(
       'select * from questions where qType = normal',
@@ -67,7 +67,7 @@ class Questions {
     });
   }
 
-  Future<List<Questions>> getDifficultQuestions() async {
+  static Future<List<Questions>> getDifficultQuestions() async {
     final db = await DBProvider.db.database;
     final List<Map<String, dynamic>> questions = await db.rawQuery(
       'select * from questions where qType = difficult',
@@ -83,9 +83,15 @@ class Questions {
     });
   }
 
-  Future<int> insertQuestion(Questions question) async {
+  static Future<void> insertQuestion(Questions question) async {
     final db = await DBProvider.db.database;
     int res = await db.insert('Questions', question.toMap());
-    return res;
+    //return res;
+  }
+
+  static Future<int> insertAllQuestions(List<Questions> allQuestions) async {
+    for (var question in allQuestions) {
+      insertQuestion(question);
+    }
   }
 }

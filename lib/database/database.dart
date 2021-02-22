@@ -28,14 +28,15 @@ class DBProvider {
       await db.execute("CREATE TABLE Questions ("
           "id INTEGER PRIMARY KEY,"
           "question TEXT,"
-          "qType TEXT,"
+          "qType TEXT"
           ")");
 
       await db.execute("CREATE TABLE Answers ("
           "id INTEGER PRIMARY KEY,"
           "answer TEXT,"
           "correct TEXT,"
-          "FOREIGN KEY (question_id) REFERENCES Questions (id)"
+          "questionId INTEGER,"
+          "FOREIGN KEY (questionId) REFERENCES Questions (id)"
           ")");
     });
   }

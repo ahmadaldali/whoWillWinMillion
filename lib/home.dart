@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:who_will_win_million/components/container_section.dart';
 import 'package:who_will_win_million/components/help.dart';
 import 'package:who_will_win_million/components/money_text.dart';
+import 'package:who_will_win_million/database/questions.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -251,6 +252,239 @@ class _MyHomePageState extends State<MyHomePage> {
                       color: Colors.white,
                     ),
                   ),
+                  RaisedButton(
+                      onPressed: () async {
+                        List<Questions> re = [];
+                        re.add(Questions(
+                            id: 8,
+                            qType: 'easy',
+                            question: 'من هو مكتشف جدول الضرب'));
+
+                        re.add(Questions(
+                            id: 9,
+                            qType: 'easy',
+                            question: 'كم عدد الدول العربية'));
+
+                        re.add(Questions(
+                            id: 10,
+                            qType: 'easy',
+                            question: 'ما هي أصغر قارات العالم مساحة'));
+
+                        re.add(Questions(
+                            id: 11,
+                            qType: 'easy',
+                            question:
+                                'ما هي الدولة العربية التي يمر بها خط الاستواء'));
+
+                        re.add(Questions(
+                            id: 12,
+                            qType: 'easy',
+                            question:
+                                'ما هي الدولة التي تتكون من مجموعة من الجزر تشبه الهلال'));
+
+                        re.add(Questions(
+                            id: 13,
+                            qType: 'easy',
+                            question: 'ما هي عاصمة سوريا'));
+
+                        re.add(Questions(
+                            id: 14,
+                            qType: 'easy',
+                            question: 'ما هي عاصمة لبنان'));
+
+                        re.add(Questions(
+                            id: 15,
+                            qType: 'easy',
+                            question: 'ما هي عاصمة السعودية'));
+
+                        re.add(Questions(
+                            id: 16,
+                            qType: 'easy',
+                            question: 'ما هي عاصمة اسبانيا'));
+
+                        re.add(Questions(
+                            id: 17,
+                            qType: 'easy',
+                            question: 'ما هي عاصمة ايطاليا'));
+
+                        re.add(Questions(
+                            id: 18,
+                            qType: 'easy',
+                            question: 'ما هي عاصمة الامارات'));
+
+                        re.add(Questions(
+                            id: 19,
+                            qType: 'easy',
+                            question: 'ما هي عاصمة انكلترا'));
+
+                        re.add(Questions(
+                            id: 20,
+                            qType: 'easy',
+                            question: 'ما هي عاصمة مصر'));
+
+                        re.add(Questions(
+                            id: 21,
+                            qType: 'easy',
+                            question: 'ما هي عاصمة البرازيل'));
+
+                        re.add(Questions(
+                            id: 22,
+                            qType: 'easy',
+                            question: 'ما هي عاصمة المكسيك'));
+
+                        re.add(Questions(
+                            id: 23,
+                            qType: 'easy',
+                            question: 'ما هي عاصمة السويد'));
+
+                        re.add(Questions(
+                            id: 24,
+                            qType: 'easy',
+                            question: 'ما هي عاصمة سويسرا'));
+
+                        re.add(Questions(
+                            id: 25,
+                            qType: 'easy',
+                            question: 'ما هي عاصمة غانا'));
+
+                        re.add(Questions(
+                            id: 26,
+                            qType: 'easy',
+                            question: 'ما هي عاصمة اليابان'));
+
+                        re.add(Questions(
+                            id: 27,
+                            qType: 'easy',
+                            question: 'ما هي عاصمة الصين'));
+
+                        re.add(Questions(
+                            id: 28,
+                            qType: 'easy',
+                            question: 'ما هي أكثر الدول سكانا في العالم'));
+
+                        re.add(Questions(
+                            id: 29,
+                            qType: 'easy',
+                            question: 'ما هي أكبر مدينة في آسيا'));
+
+                        re.add(Questions(
+                            id: 30,
+                            qType: 'easy',
+                            question: 'ما هو لون الرئتين السليمتين'));
+
+                        re.add(Questions(
+                            id: 31,
+                            qType: 'easy',
+                            question: 'ما هو أقرب كوكب إلى الشمس'));
+
+                        re.add(Questions(
+                            id: 32,
+                            qType: 'easy',
+                            question: 'ما هو الحيوان الذي يُسمى البهنس'));
+
+                        re.add(Questions(
+                            id: 33,
+                            qType: 'easy',
+                            question: 'ما هو مقياس سرعة السفن'));
+
+                        re.add(Questions(
+                            id: 34,
+                            qType: 'easy',
+                            question:
+                                'ما هو الغاز الذي يستعمل في إطفاء الحرائق'));
+
+                        re.add(Questions(
+                            id: 35,
+                            qType: 'easy',
+                            question:
+                                'ما هو الحيوان الذي يصاب بالحصبة كالإنسان'));
+
+                        re.add(Questions(
+                            id: 36,
+                            qType: 'easy',
+                            question:
+                                'ما هو البحر الذي يفصل بين تركيا واليونان'));
+
+                        re.add(Questions(
+                            id: 37, qType: 'easy', question: 'ما هو الفيفا'));
+
+                        re.add(Questions(
+                            id: 38,
+                            qType: 'easy',
+                            question: 'كم عدد الثقوب في لعبة البلياردو'));
+
+                        re.add(Questions(
+                            id: 39,
+                            qType: 'easy',
+                            question: 'ما سبب مرض الكوليرا'));
+
+                        re.add(Questions(
+                            id: 40,
+                            qType: 'easy',
+                            question:
+                                'ما النسبة المئوية التي تحملها النطفة من صفات الأب'));
+
+                        re.add(Questions(
+                            id: 41,
+                            qType: 'easy',
+                            question: 'ماذا يحدث بحجم الماء عن التجمد'));
+
+                        re.add(Questions(
+                            id: 42,
+                            qType: 'easy',
+                            question: 'من أي مادة تصنع عجلات السيارات'));
+
+                        re.add(Questions(
+                            id: 43,
+                            qType: 'easy',
+                            question: 'أين توجد البلازما'));
+
+                        re.add(Questions(
+                            id: 44,
+                            qType: 'easy',
+                            question:
+                                'كيف يخرج الجنين مخلفاته وهو في بطن أمه'));
+
+                        re.add(Questions(
+                            id: 45,
+                            qType: 'easy',
+                            question:
+                                'ما الفيتامين الذي يأخذه الجسم من أشعة الشمس'));
+
+                        re.add(Questions(
+                            id: 46,
+                            qType: 'easy',
+                            question:
+                                'ما فصيلة الدم التي يطلق عليها فصيلة الدم الكريمة'));
+
+                        re.add(Questions(
+                            id: 47,
+                            qType: 'easy',
+                            question:
+                                'ما الشيء الذي تستطيع أن تفعله دون أن يراه أحد'));
+
+                        re.add(Questions(
+                            id: 48,
+                            qType: 'easy',
+                            question:
+                                'ما الشيء الذي لا يتحرك الا اذا ضربته على رأسه'));
+
+                        re.add(Questions(
+                            id: 49,
+                            qType: 'easy',
+                            question:
+                                'أيهما أثقل، طن من الحديد أم طن من الريش'));
+
+                        re.add(Questions(
+                            id: 50,
+                            qType: 'easy',
+                            question: 'متى نستطيع وضع الماء في الغربال'));
+                        print(re.length);
+                        //Questions.insertAllQuestions(re);
+                        print('object');
+                        //print( Questions.questions().then((value) => null))
+                      },
+                      child: null)
                 ],
               )
             ],
