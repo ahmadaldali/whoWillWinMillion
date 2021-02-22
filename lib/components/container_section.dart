@@ -35,7 +35,7 @@ class ContainerSection extends StatelessWidget {
         child: Consumer<ProviderClass>(builder: (context, sp, child) {
           return Container(
             alignment: Alignment.centerRight,
-            width: 20,
+            width: 200,
             height: isQuestion
                 ? MediaQuery.of(context).size.height * 0.09
                 : MediaQuery.of(context).size.height * 0.07,
@@ -55,7 +55,7 @@ class ContainerSection extends StatelessWidget {
                 right: MediaQuery.of(context).size.width * 0.035,
               ),
               child: Text(
-                isQuestion ? 'dddddd' : letter[index] + ' ' + a,
+                isQuestion ? 'ماهو البحر الميت؟' : letter[index] + ' ' + a,
                 //textAlign: TextAlign.end,
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),
