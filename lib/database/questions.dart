@@ -22,7 +22,8 @@ class Questions {
     final db = await DBProvider.db.database;
 
     // Query the table for all The Questions.
-    final List<Map<String, dynamic>> questions = await db.query('questions');
+    final List<Map<String, dynamic>> questions =
+        await db.query('questions', limit: 20);
 
     // Convert the List<Map<String, dynamic> into a List<Question>.
     return List.generate(questions.length, (i) {
@@ -89,9 +90,16 @@ class Questions {
     //return res;
   }
 
-  static Future<int> insertAllQuestions(List<Questions> allQuestions) async {
+  static Future<void> insertAllQuestions(List<Questions> allQuestions) async {
     for (var question in allQuestions) {
       insertQuestion(question);
     }
+  }
+
+  static Future<void> deleteAllQuestions() async {
+    final db = await DBProvider.db.database;
+    final int res = await db.rawDelete(
+      'delete * from questions',
+    );
   }
 }
