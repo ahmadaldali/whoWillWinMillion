@@ -61,8 +61,4 @@ class ProviderClass extends ChangeNotifier {
   void stopTimer() {
     _timer.cancel();
   }
-
-  Future sleep1() {
-    return new Future.delayed(const Duration(seconds: 1), () => "1");
-  }
 }

@@ -5,6 +5,7 @@ import 'package:who_will_win_million/components/container_section.dart';
 import 'package:who_will_win_million/components/help.dart';
 import 'package:who_will_win_million/components/money_text.dart';
 import 'package:who_will_win_million/database/answers.dart';
+import 'package:who_will_win_million/money.dart';
 import 'package:who_will_win_million/provider_class.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -69,63 +70,48 @@ class _MyHomePageState extends State<MyHomePage> {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             MoneyText(
-                              val: '1,000,000',
                               index: 15,
                             ),
                             MoneyText(
-                              val: '500,000',
                               index: 14,
                             ),
                             MoneyText(
-                              val: '250,000',
                               index: 13,
                             ),
                             MoneyText(
-                              val: '125,000',
                               index: 12,
                             ),
                             MoneyText(
-                              val: '64,000',
                               index: 11,
                             ),
                             MoneyText(
-                              val: '32,000',
                               index: 10,
                             ),
                             MoneyText(
-                              val: '16,000',
                               index: 9,
                             ),
                             MoneyText(
-                              val: '8,000',
                               index: 8,
                             ),
                             MoneyText(
-                              val: '4,000',
                               index: 7,
                             ),
                             MoneyText(
-                              val: '2,000',
                               index: 6,
                             ),
                             MoneyText(
-                              val: '1,000',
                               index: 5,
                             ),
                             MoneyText(
-                              val: '500',
                               index: 4,
                             ),
                             MoneyText(
-                              val: '300',
                               index: 3,
                             ),
                             MoneyText(
-                              val: '200',
                               index: 2,
                             ),
                             MoneyText(
-                              val: '100',
                               index: 1,
                             ),
                           ],
@@ -261,7 +247,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             Container(
                               alignment: Alignment.center,
-                              width: MediaQuery.of(context).size.width * 0.45,
+                              width: MediaQuery.of(context).size.width * 0.6,
                               height: MediaQuery.of(context).size.height * 0.07,
                               decoration: BoxDecoration(
                                 border: Border.all(color: Colors.white),
@@ -275,7 +261,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ),
                               ),
                               child: Text(
-                                'SY ' + '500',
+                                'SY ' + Money.getMoney(index),
                                 style: TextStyle(
                                     color: Colors.white, fontSize: size),
                               ),

@@ -35,11 +35,6 @@ class ContainerSection extends StatelessWidget {
     co1 = (answerIndex == index) ? selectedColor : co1;
     co2 = (answerIndex == index) ? selectedColor : co2;
 
-    print('index ans  ' +
-        index.toString() +
-        '::::::::::::::::' +
-        answerIndex.toString());
-
     return Expanded(
       child: GestureDetector(
         onTap: () async {
