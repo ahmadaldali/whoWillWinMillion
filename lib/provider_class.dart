@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 
 class ProviderClass extends ChangeNotifier {
   bool _canSelected = true;
+  bool _correctAnswer = false;
+  bool _wrongAnswer = false;
+
   int _index = 0;
   int _start = 30;
   int _answerIndex = -1; // for inital no selected color
@@ -11,6 +14,14 @@ class ProviderClass extends ChangeNotifier {
 
   bool get getcanSelected {
     return _canSelected;
+  }
+
+  bool get getCorrect {
+    return _correctAnswer;
+  }
+
+  bool get getWrong {
+    return _wrongAnswer;
   }
 
   int get getIndex {
@@ -25,9 +36,19 @@ class ProviderClass extends ChangeNotifier {
     return _start;
   }
 
-  void setCanSelected() {
-    _canSelected = false;
+  void setCanSelected(bool value) {
+    _canSelected = value;
+    //notifyListeners();
+  }
+
+  void setCorrect(bool value) {
+    _correctAnswer = value;
     notifyListeners();
+  }
+
+  void setWrong(bool value) {
+    _wrongAnswer = value;
+    //notifyListeners();
   }
 
   void setIndex() {
@@ -60,5 +81,6 @@ class ProviderClass extends ChangeNotifier {
 
   void stopTimer() {
     _timer.cancel();
+    notifyListeners();
   }
 }

@@ -14,6 +14,7 @@ class MoneyText extends StatelessWidget {
   Widget build(BuildContext context) {
     _val = Money.getMoney(index);
     size = (MediaQuery.of(context).size.height < 700) ? 12 : 15;
+    size = (MediaQuery.of(context).size.width < 400) ? 10 : size;
     _txt = _val + '     ' + index.toString();
     _txt = (index < 10) ? _txt + '  ' : _txt;
     _co = (index == 5 || index == 10 || index == 15) ? Colors.white : _co;
