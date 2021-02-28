@@ -25,15 +25,18 @@ class HelpEclipse extends StatelessWidget {
               ? FaIcon(
                   FontAwesomeIcons.question,
                   size: MediaQuery.of(context).size.width * 0.06,
+                  color: Colors.white,
                 )
               : ((ty == 'questionnaire')
                   ? FaIcon(
                       FontAwesomeIcons.chartBar,
                       size: MediaQuery.of(context).size.width * 0.06,
+                      color: Colors.white,
                     )
                   : FaIcon(
                       FontAwesomeIcons.gripLines,
                       size: MediaQuery.of(context).size.width * 0.06,
+                      color: Colors.white,
                     )),
         ),
       ),

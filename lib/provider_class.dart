@@ -10,6 +10,7 @@ class ProviderClass extends ChangeNotifier {
   int _index = 0;
   int _start = 30;
   int _answerIndex = -1; // for inital no selected color
+  int _winnerIndex = 2; //
   Timer _timer;
 
   bool get getcanSelected {
@@ -30,6 +31,10 @@ class ProviderClass extends ChangeNotifier {
 
   int get getAnswerIndex {
     return _answerIndex;
+  }
+
+  int get getWinner {
+    return _winnerIndex;
   }
 
   int get getTimer {
@@ -56,7 +61,11 @@ class ProviderClass extends ChangeNotifier {
     _index++;
     _start = 30;
     notifyListeners();
-    decreaseTimer();
+    if (_index < _winnerIndex) {
+      decreaseTimer();
+    } else {
+      stopTimer();
+    }
   }
 
   void setAnswerIndex(int i) {
@@ -81,6 +90,8 @@ class ProviderClass extends ChangeNotifier {
 
   void stopTimer() {
     _timer.cancel();
-    notifyListeners();
+    if (_index < _winnerIndex) {
+      notifyListeners();
+    }
   }
 }

@@ -2,25 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:who_will_win_million/components/container_section.dart';
 import 'package:who_will_win_million/provider_class.dart';
+import 'package:who_will_win_million/winner.dart';
 
 // ignore: must_be_immutable
 class Basic extends StatelessWidget {
   List<dynamic> levels;
   int _start = 30;
   int _index = 0;
+  int _winner;
   double _size;
 
   Basic(this.levels);
 
   @override
   Widget build(BuildContext context) {
+    _size = (MediaQuery.of(context).size.height < 700) ? 17 : 22;
+    _size = (MediaQuery.of(context).size.width < 400) ? 15 : _size;
     return Consumer<ProviderClass>(builder: (context, value, child) {
       _index = value.getIndex;
       _start = value.getTimer;
+      _winner = value.getWinner;
+
       return (_start <= 0)
           ? Text('خسرت')
-          : (_index == 15)
-              ? Text('ربحت ، مبروك')
+          : (_index == _winner)
+              ? Winner()
               : Stack(
                   children: [
                     Column(

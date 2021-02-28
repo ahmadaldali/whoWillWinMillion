@@ -10,7 +10,7 @@ class ValueOfGame extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    _size = (MediaQuery.of(context).size.height < 700) ? 17 : 20;
+    _size = (MediaQuery.of(context).size.height < 700) ? 17 : 22;
     _size = (MediaQuery.of(context).size.width < 400) ? 15 : _size;
 
     return Consumer<ProviderClass>(

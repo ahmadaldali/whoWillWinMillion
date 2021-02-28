@@ -15,7 +15,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  Timer _timer;
   List<dynamic> _levels;
   double _size;
 
@@ -26,16 +25,10 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
   }
 
-  @override
-  void dispose() {
-    _timer.cancel();
-    super.dispose();
-  }
-
   void initLevels() async {
     _levels = await Answers.getGame();
     setState(() {});
-    await Future.delayed(new Duration(seconds: 2));
+    await Future.delayed(new Duration(seconds: 1));
     Provider.of<ProviderClass>(context, listen: false).decreaseTimer();
   }
 
