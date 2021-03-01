@@ -20,25 +20,39 @@ class HelpEclipse extends StatelessWidget {
           border: Border.all(color: Colors.white, width: 2),
           borderRadius: new BorderRadius.all(Radius.elliptical(100, 50)),
         ),
-        child: Center(
-          child: (ty == 'mark')
-              ? FaIcon(
-                  FontAwesomeIcons.question,
-                  size: MediaQuery.of(context).size.width * 0.06,
-                  color: Colors.white,
-                )
-              : ((ty == 'questionnaire')
-                  ? FaIcon(
-                      FontAwesomeIcons.chartBar,
-                      size: MediaQuery.of(context).size.width * 0.06,
-                      color: Colors.white,
-                    )
-                  : FaIcon(
-                      FontAwesomeIcons.gripLines,
-                      size: MediaQuery.of(context).size.width * 0.06,
-                      color: Colors.white,
-                    )),
-        ),
+        child: this.ty == 'winner'
+            ? Center(
+                child: Icon(
+                  Icons.grade,
+                  color: Colors.yellow[400],
+                ),
+              )
+            : this.ty == 'game_over'
+                ? Center(
+                    child: Icon(
+                      Icons.games,
+                      color: Colors.yellow[400],
+                    ),
+                  )
+                : Center(
+                    child: (ty == 'mark')
+                        ? FaIcon(
+                            FontAwesomeIcons.question,
+                            size: MediaQuery.of(context).size.width * 0.06,
+                            color: Colors.white,
+                          )
+                        : ((ty == 'questionnaire')
+                            ? FaIcon(
+                                FontAwesomeIcons.chartBar,
+                                size: MediaQuery.of(context).size.width * 0.06,
+                                color: Colors.white,
+                              )
+                            : Icon(
+                                Icons.delete,
+                                size: MediaQuery.of(context).size.width * 0.06,
+                                color: Colors.white,
+                              )),
+                  ),
       ),
     );
   }

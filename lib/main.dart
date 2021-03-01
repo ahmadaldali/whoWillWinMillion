@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:who_will_win_million/home.dart';
+import 'package:who_will_win_million/first.dart';
 import 'package:who_will_win_million/provider_class.dart';
 
 void main() {
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(),
+      home: FirstPage(),
     );
   }
 }

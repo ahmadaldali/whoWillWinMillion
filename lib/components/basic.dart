@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:who_will_win_million/components/container_section.dart';
 import 'package:who_will_win_million/provider_class.dart';
-import 'package:who_will_win_million/winner.dart';
+import 'package:who_will_win_million/components/winner.dart';
 
 // ignore: must_be_immutable
 class Basic extends StatelessWidget {
@@ -24,9 +24,9 @@ class Basic extends StatelessWidget {
       _winner = value.getWinner;
 
       return (_start <= 0)
-          ? Text('خسرت')
+          ? Winner(false)
           : (_index == _winner)
-              ? Winner()
+              ? Winner(true)
               : Stack(
                   children: [
                     Column(

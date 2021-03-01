@@ -3,14 +3,15 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 class ProviderClass extends ChangeNotifier {
+  //for colors of answers (selected & correct & wrong)
   bool _canSelected = true;
   bool _correctAnswer = false;
   bool _wrongAnswer = false;
 
-  int _index = 0;
-  int _start = 30;
+  int _index = 0; //index of current question
+  int _start = 30; //timer
   int _answerIndex = -1; // for inital no selected color
-  int _winnerIndex = 2; //
+  int _winnerIndex = 1; //
   Timer _timer;
 
   bool get getcanSelected {
