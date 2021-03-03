@@ -9,6 +9,7 @@ class Basic extends StatelessWidget {
   List<dynamic> levels;
   int _start = 30;
   int _index = 0;
+  int _gameOver = 0;
   int _winner;
   double _size;
 
@@ -22,8 +23,9 @@ class Basic extends StatelessWidget {
       _index = value.getIndex;
       _start = value.getTimer;
       _winner = value.getWinner;
+      _gameOver = value.getAnswerIndex;
 
-      return (_start <= 0)
+      return (_start <= 0 || _gameOver == -5)
           ? Winner(false)
           : (_index == _winner)
               ? Winner(true)

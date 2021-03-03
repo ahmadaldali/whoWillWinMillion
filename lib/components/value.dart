@@ -7,6 +7,8 @@ import 'package:who_will_win_million/provider_class.dart';
 class ValueOfGame extends StatelessWidget {
   double _size;
   int _index;
+  int _winner;
+  String _val = '0';
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,8 @@ class ValueOfGame extends StatelessWidget {
     return Consumer<ProviderClass>(
       builder: (context, value, child) {
         _index = value.getIndex;
-
+        _winner = value.getWinner;
+        _val = (_winner == -5) ? '0' : Money.getMoney(_index);
         return Row(
           children: [
             Expanded(
@@ -41,7 +44,7 @@ class ValueOfGame extends StatelessWidget {
                 ),
               ),
               child: Text(
-                'SY ' + Money.getMoney(_index),
+                'SY ' + _val,
                 style: TextStyle(color: Colors.white, fontSize: _size),
               ),
             ),

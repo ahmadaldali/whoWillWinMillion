@@ -11,7 +11,7 @@ class ProviderClass extends ChangeNotifier {
   int _index = 0; //index of current question
   int _start = 30; //timer
   int _answerIndex = -1; // for inital no selected color
-  int _winnerIndex = 1; //
+  int _winnerIndex = 15; //
   Timer _timer;
 
   bool get getcanSelected {
@@ -73,6 +73,10 @@ class ProviderClass extends ChangeNotifier {
     _answerIndex = i;
   }
 
+  void setWinner(int i) {
+    _winnerIndex = i;
+  }
+
   void decreaseTimer() async {
     await Future.delayed(Duration(seconds: 1));
     const oneSec = const Duration(seconds: 1);
@@ -80,6 +84,7 @@ class ProviderClass extends ChangeNotifier {
       oneSec,
       (Timer timer) {
         if (_start == 0) {
+          setWinner(-5);
           timer.cancel();
         } else {
           _start--;

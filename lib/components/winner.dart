@@ -12,7 +12,7 @@ class Winner extends StatefulWidget {
 
 class _WinnerState extends State<Winner> {
   String name = '';
-  String todayDate;
+  var _todayDate;
   bool loading = true;
 
   _getName() async {
@@ -25,7 +25,8 @@ class _WinnerState extends State<Winner> {
 
   @override
   void initState() {
-    todayDate = DateFormat("yyyy/MM/dd").format(DateTime.now());
+    _todayDate = DateFormat("yyyy/MM/dd").format(DateTime.now());
+
     _getName();
     super.initState();
   }
@@ -114,7 +115,7 @@ class _WinnerState extends State<Winner> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Text(
-                            '2020/03/01',
+                            _todayDate.toString(),
                             style: TextStyle(
                                 fontSize: 22, fontWeight: FontWeight.bold),
                           )

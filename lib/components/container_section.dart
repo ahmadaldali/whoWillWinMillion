@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:who_will_win_million/provider_class.dart';
 
@@ -103,35 +102,45 @@ class _ContainerSectionState extends State<ContainerSection>
           if (!widget.isQuestion &&
               Provider.of<ProviderClass>(context, listen: false)
                   .getcanSelected) {
-            Provider.of<ProviderClass>(context, listen: false)
-                .setCanSelected(false);
-            Provider.of<ProviderClass>(context, listen: false)
-                .setAnswerIndex(this.widget.index);
-            Provider.of<ProviderClass>(context, listen: false).stopTimer();
+            try {
+              Provider.of<ProviderClass>(context, listen: false).stopTimer();
 
-            await Future.delayed(new Duration(seconds: 3));
-            if (this.widget.correct == 'yes') {
               Provider.of<ProviderClass>(context, listen: false)
-                  .setCorrect(true);
+                  .setCanSelected(false);
+              Provider.of<ProviderClass>(context, listen: false)
+                  .setAnswerIndex(this.widget.index);
 
               await Future.delayed(new Duration(seconds: 3));
-              //next question
-              Provider.of<ProviderClass>(context, listen: false).setIndex();
-              //reset values to inital
-              Provider.of<ProviderClass>(context, listen: false)
-                  .setAnswerIndex(-1);
-              Provider.of<ProviderClass>(context, listen: false)
-                  .setCanSelected(true);
-              Provider.of<ProviderClass>(context, listen: false)
-                  .setCorrect(false);
-            } else {
-              Provider.of<ProviderClass>(context, listen: false).setWrong(true);
-              Provider.of<ProviderClass>(context, listen: false)
-                  .setCorrect(false);
-              await Future.delayed(new Duration(seconds: 3));
+              if (this.widget.correct == 'yes') {
+                Provider.of<ProviderClass>(context, listen: false)
+                    .setCorrect(true);
 
-              //game over
-              SystemNavigator.pop();
+                await Future.delayed(new Duration(seconds: 3));
+                //next question
+                Provider.of<ProviderClass>(context, listen: false).setIndex();
+                //reset values to inital
+                Provider.of<ProviderClass>(context, listen: false)
+                    .setAnswerIndex(-1);
+                Provider.of<ProviderClass>(context, listen: false)
+                    .setCanSelected(true);
+                Provider.of<ProviderClass>(context, listen: false)
+                    .setCorrect(false);
+              } else {
+                Provider.of<ProviderClass>(context, listen: false)
+                    .setWrong(true);
+                Provider.of<ProviderClass>(context, listen: false)
+                    .setCorrect(false);
+                await Future.delayed(new Duration(seconds: 3));
+
+                //game over
+                Provider.of<ProviderClass>(context, listen: false)
+                    .setAnswerIndex(-5); // game over
+                Provider.of<ProviderClass>(context, listen: false)
+                    .setWinner(-5); // game over
+                Provider.of<ProviderClass>(context, listen: false).setIndex();
+              }
+            } catch (e) {
+              print(e);
             }
           }
         },

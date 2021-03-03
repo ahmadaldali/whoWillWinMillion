@@ -25,13 +25,15 @@ class HelpEclipse extends StatelessWidget {
                 child: Icon(
                   Icons.grade,
                   color: Colors.yellow[400],
+                  size: MediaQuery.of(context).size.width * 0.06,
                 ),
               )
             : this.ty == 'game_over'
                 ? Center(
-                    child: Icon(
-                      Icons.games,
-                      color: Colors.yellow[400],
+                    child: FaIcon(
+                      FontAwesomeIcons.sadTear,
+                      size: MediaQuery.of(context).size.width * 0.06,
+                      color: Colors.yellow[600],
                     ),
                   )
                 : Center(

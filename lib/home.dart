@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:who_will_win_million/components/all_helps.dart';
@@ -28,7 +27,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void initLevels() async {
     _levels = await Answers.getGame();
     setState(() {});
-    await Future.delayed(new Duration(seconds: 1));
+    //await Future.delayed(new Duration(seconds: 1));
     Provider.of<ProviderClass>(context, listen: false).decreaseTimer();
   }
 

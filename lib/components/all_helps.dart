@@ -23,19 +23,27 @@ class AllHelps extends StatelessWidget {
                   )
                 ],
               )
-            : Row(
-                children: [
-                  HelpEclipse(
-                    ty: 'mark',
-                  ),
-                  HelpEclipse(
-                    ty: '50',
-                  ),
-                  HelpEclipse(
-                    ty: 'questionnaire',
-                  ),
-                ],
-              );
+            : (_winner == -5)
+                ? Row(
+                    children: [
+                      HelpEclipse(
+                        ty: 'game_over',
+                      )
+                    ],
+                  )
+                : Row(
+                    children: [
+                      HelpEclipse(
+                        ty: 'mark',
+                      ),
+                      HelpEclipse(
+                        ty: '50',
+                      ),
+                      HelpEclipse(
+                        ty: 'questionnaire',
+                      ),
+                    ],
+                  );
       },
     );
   }
